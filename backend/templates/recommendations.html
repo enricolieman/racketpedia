@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+</head>
+<body>
+    <h1>Recommended Rackets</h1>
+<div id="recommendations">
+    {% for recommendation in data.recommendations %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ recommendation.Brand }} {{ recommendation.Model }}</h5>
+            <p class="card-text">
+                <ul>
+                    <li>Price : Rp {{ "{:,.0f}".format(recommendation.Price).replace(',', '.') }}</li>
+                    <li>Weight : {{ recommendation.Weight }} gram</li>
+                    <li>Stiffness : {{ recommendation.Stiffness }}</li>
+                    <li>Balance Point : {{ recommendation.Balance_Point }}</li>                    
+                </ul>
+                <p>{{ recommendation.Description }}</p>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
